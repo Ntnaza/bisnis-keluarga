@@ -187,65 +187,6 @@ function Footer() {
   return <footer className="footer"><div className="brand"><span className="brand-mark">r</span><span>rumah<span className="brand-light">restu</span></span></div><p>Hangatnya selalu pulang.</p><a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram Rumah Restu"><Camera size={18} /></a><small>© 2026 Rumah Restu</small></footer>
 }
 
-function SmoothPageScroll() {
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
-    const hero = document.querySelector('.hero-scroll')
-    if (!hero) return undefined
-    let target = window.scrollY
-    let raf = 0
-    let lastTime = 0
-    let isAnimating = false
-
-    const getHeroEnd = () => Math.max(hero.offsetHeight - window.innerHeight, 0)
-    const animate = () => {
-      raf = 0
-      isAnimating = true
-      const now = performance.now()
-      const elapsed = lastTime ? Math.min(now - lastTime, 64) : 16
-      lastTime = now
-      const current = window.scrollY
-      const easing = 1 - Math.exp(-elapsed / 150)
-      const next = current + (target - current) * easing
-      window.scrollTo({ top: next, left: 0, behavior: 'auto' })
-      if (Math.abs(target - next) > 0.5) raf = requestAnimationFrame(animate)
-      else {
-        window.scrollTo({ top: target, left: 0, behavior: 'auto' })
-        lastTime = 0
-        isAnimating = false
-      }
-    }
-    const handleWheel = (event) => {
-      if (event.ctrlKey || event.deltaY === 0) return
-      const heroEnd = getHeroEnd()
-      const transitionBuffer = 120
-      const regularPageActive = window.scrollY > heroEnd + transitionBuffer
-      if (!regularPageActive) {
-        target = window.scrollY
-        if (raf) cancelAnimationFrame(raf)
-        raf = 0
-        isAnimating = false
-        lastTime = 0
-        return
-      }
-      event.preventDefault()
-      target = Math.min(Math.max(target + event.deltaY, 0), document.documentElement.scrollHeight - window.innerHeight)
-      if (!raf) raf = requestAnimationFrame(animate)
-    }
-    const syncTarget = () => {
-      if (!isAnimating && !raf) target = window.scrollY
-    }
-    window.addEventListener('wheel', handleWheel, { passive: false })
-    window.addEventListener('scroll', syncTarget, { passive: true })
-    return () => {
-      window.removeEventListener('wheel', handleWheel)
-      window.removeEventListener('scroll', syncTarget)
-      if (raf) cancelAnimationFrame(raf)
-    }
-  }, [])
-  return null
-}
-
-function App() { return <><SmoothPageScroll /><Navbar /><main><HeroScrollCanvas /><ProductCatalog /><StorySection /><OrderSection /></main><Footer /></> }
+function App() { return <><Navbar /><main><HeroScrollCanvas /><ProductCatalog /><StorySection /><OrderSection /></main><Footer /></> }
 
 createRoot(document.getElementById('root')).render(<App />)
