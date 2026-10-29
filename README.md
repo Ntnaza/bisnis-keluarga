@@ -9,8 +9,8 @@ npm install
 npm run dev
 ```
 
-## Hero frames
+## Product images
 
-The current frame set belongs in `public/frames/Risol/` and uses `ezgif-frame-001.jpg` through `ezgif-frame-091.jpg`. The canvas preloads them and maps scroll progress across the 400vh hero section. A CSS fallback remains visible when the frame set is not available.
+Hero and catalog images are stored in `public/products/`. `Risol-BG.jpg` is the full hero background; the remaining product photos are used by the catalog cards.
 
 Update `WHATSAPP_URL` in `src/main.jsx` with the real business number before launch.
