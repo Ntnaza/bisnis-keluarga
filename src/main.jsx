@@ -61,16 +61,16 @@ function HeroSection() {
 }
 
 const products = [
+  { name: 'Bolu Kukus Karamel', detail: 'Lembut, wangi karamel, tanpa pemanis buatan', price: 'Rp 35.000 / box', accent: 'cream', image: '/products/Bolu.jpg', bestSeller: true },
   { name: 'Risol Ragout Ayam', detail: 'Ayam suwir, sayur segar', price: 'Rp 2.500 / pcs', accent: 'gold', image: '/products/Risol.jpg' },
   { name: 'Cilok Bumbu Kacang', detail: 'Kenyal lembut, bumbu kacang gurih pedas', price: 'Rp 15.000 / porsi', accent: 'terracotta', image: '/products/Cilok.jpg' },
-  { name: 'Bolu Kukus Karamel', detail: 'Lembut, wangi karamel, tanpa pemanis buatan', price: 'Rp 35.000 / box', accent: 'cream', image: '/products/Bolu.jpg' },
   { name: 'Gorengan Renyah', detail: 'Gurih, renyah, cocok untuk teman ngobrol', price: 'Rp 18.000 / box', accent: 'gold', image: '/products/Gorengan.jpg' },
   { name: 'Nugget Singkong', detail: 'Renyah di luar, lembut di dalam', price: 'Rp 20.000 / box', accent: 'terracotta', image: '/products/Nugetsingkong.jpg' },
 ]
 
 function ProductCard({ product }) {
   return <article className="product-card">
-    <div className="product-image"><img src={product.image} alt={product.name} loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none'; event.currentTarget.nextElementSibling.style.display = 'block' }} /><ProductFallback accent={product.accent} /><span className="product-tag">favorit rumah</span></div>
+    <div className="product-image"><img src={product.image} alt={product.name} loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none'; event.currentTarget.nextElementSibling.style.display = 'block' }} /><ProductFallback accent={product.accent} /><span className={`product-tag ${product.bestSeller ? 'best-seller' : ''}`}>{product.bestSeller ? 'best seller' : 'favorit rumah'}</span></div>
     <div className="product-info"><div><h3>{product.name}</h3><p>{product.detail}</p></div><span className="price">{product.price}</span></div>
   </article>
 }
