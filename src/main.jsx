@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { ArrowUpRight, BadgePercent, Clock3, MapPin, MessageCircle, Sparkles } from 'lucide-react'
 import './styles.css'
 
-const WHATSAPP_URL = 'https://wa.me/6283135697266?text=Halo%20Rumah%20Restu%2C%20saya%20ingin%20memesan%20camilan.'
+const WHATSAPP_URL = 'https://wa.me/6285842817255?text=Halo%20Rumah%20Restu%2C%20saya%20ingin%20memesan%20camilan.'
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
