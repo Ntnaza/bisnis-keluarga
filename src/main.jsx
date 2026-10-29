@@ -62,7 +62,7 @@ function HeroSection() {
 
 const products = [
   { name: 'Bolu Kukus Karamel', detail: 'Lembut, wangi karamel, tanpa pemanis buatan', price: 'Rp 35.000 / box', accent: 'cream', image: '/products/Bolu.jpg', bestSeller: true },
-  { name: 'Risol Ragout Ayam', detail: 'Ayam suwir, sayur segar', price: 'Rp 2.500 / pcs', accent: 'gold', image: '/products/Risol.jpg' },
+  { name: 'Risol Sayur dan Ayam', detail: 'Ayam suwir, sayur segar', price: 'Rp 2.500 / pcs', accent: 'gold', image: '/products/Risol.jpg' },
   { name: 'Cilok Bumbu Kacang', detail: 'Kenyal lembut, bumbu kacang gurih pedas', price: 'Rp 15.000 / porsi', accent: 'terracotta', image: '/products/Cilok.jpg' },
   { name: 'Gorengan Renyah', detail: 'Gurih, renyah, cocok untuk teman ngobrol', price: 'Rp 18.000 / box', accent: 'gold', image: '/products/Gorengan.jpg' },
   { name: 'Nugget Singkong', detail: 'Renyah di luar, lembut di dalam', price: 'Rp 20.000 / box', accent: 'terracotta', image: '/products/Nugetsingkong.jpg' },
